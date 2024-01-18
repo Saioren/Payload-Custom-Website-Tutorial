@@ -2,6 +2,8 @@ import React from "react";
 import type { AppProps } from "next/app";
 import { ModalProvider } from "@faceless-ui/modal";
 import { GridProvider } from "@faceless-ui/css-grid";
+import { Header } from "../components/layout/Header";
+import { Footer } from "../components/layout/Footer";
 
 import classes from "../css/style.css";
 
@@ -28,6 +30,7 @@ const MyApp = ({ Component, pageProps }: AppProps): React.ReactElement => (
       }}
     >
       <div className={classes.app}>
+        <Header />
         <Component {...pageProps} />
       </div>
     </GridProvider>

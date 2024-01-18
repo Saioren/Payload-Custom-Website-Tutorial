@@ -9,6 +9,7 @@ import classes from "../css/page.module.css";
 import RenderBlocks from "../components/RenderBlocks";
 import { Cell, Grid } from "@faceless-ui/css-grid";
 import GridContainer from "../components/layout/GridContainer";
+import { Template } from "../components/layout/Template";
 
 const {
   publicRuntimeConfig: { SERVER_URL },
@@ -27,7 +28,7 @@ const Page: React.FC<Props> = (props) => {
   }
 
   return (
-    <main className={classes.page}>
+    <Template>
       <Head
         title={page.meta?.title || page.title}
         description={page.meta?.description}
@@ -64,7 +65,7 @@ const Page: React.FC<Props> = (props) => {
           Payload
         </a>
       </footer>
-    </main>
+    </Template>
   );
 };
 
