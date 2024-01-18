@@ -329,6 +329,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@faceless-ui/css-grid@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@faceless-ui/css-grid/-/css-grid-1.2.1.tgz#675093c5f3f68ec8381570d14cf33509850cb99e"
+  integrity sha512-NE5dnzV2Jj2WzQ4gsQUU/Dzlz33kE/3R2hdW227zFU2Y16vyyrqDAD07AeC+JL8HhZtVmsxjxs1Du/Jc41LsdQ==
+
 "@faceless-ui/modal@^2.0.1":
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/@faceless-ui/modal/-/modal-2.0.1.tgz#8a47299442eff450c09432cfaef35c5471becad6"
