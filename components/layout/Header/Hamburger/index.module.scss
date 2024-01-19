@@ -6,3 +6,55 @@
     stroke: white;
 }
 
+// index.module.scss
+
+@keyframes lineDisappear {
+    to {
+      stroke-opacity: 0;
+    }
+  }
+  
+  @keyframes lineRotate {
+    to {
+      transform: rotate(45deg);
+    }
+  }
+  
+  $line-duration: 0.3s;
+  
+  .hamburger {
+    cursor: pointer;
+  
+    .line1 {
+      transition: $line-duration;
+      stroke-opacity: 1;
+    }
+  
+    .line2,
+    .line3 {
+      transition: $line-duration;
+      transform-origin: center;
+    }
+  
+    .line4 {
+      transition: $line-duration;
+    }
+  
+    &.active {
+      .line1,
+      .line4 {
+        animation: lineDisappear $line-duration;
+      }
+  
+      .line2 {
+        animation: lineRotate $line-duration;
+        transform: rotate(45deg);
+      }
+  
+      .line3 {
+        animation: lineRotate $line-duration;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+  

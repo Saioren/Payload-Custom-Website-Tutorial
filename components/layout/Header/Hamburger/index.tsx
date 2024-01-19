@@ -1,3 +1,5 @@
+// Your React component file
+
 import React from "react";
 import classes from "./index.module.scss";
 
@@ -6,9 +8,14 @@ type Props = {
 };
 
 const Hamburger: React.FC<Props> = ({ active }) => {
+  const classNames = [classes.hamburger];
+  if (active) {
+    classNames.push(classes.active);
+  }
+
   return (
     <svg
-      className={classes.hamburger}
+      className={classNames.join(" ")}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 30 24"
       width="30"
