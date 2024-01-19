@@ -1,60 +1,35 @@
 .hamburger {
-    overflow: visible;
-    width: 1.2rem;
-    height: 1.2rem;
-    stroke-width: 3px;
-    stroke: white;
+  overflow: visible;
+  width: 1rem;
+  height: 1rem;
 }
 
-// index.module.scss
+.hamburger.active .line1 {
+  opacity: 0;
+  transform: translateY(-5px);
+} 
 
-@keyframes lineDisappear {
-    to {
-      stroke-opacity: 0;
-    }
-  }
-  
-  @keyframes lineRotate {
-    to {
-      transform: rotate(45deg);
-    }
-  }
-  
-  $line-duration: 0.3s;
-  
-  .hamburger {
-    cursor: pointer;
-  
-    .line1 {
-      transition: $line-duration;
-      stroke-opacity: 1;
-    }
-  
-    .line2,
-    .line3 {
-      transition: $line-duration;
-      transform-origin: center;
-    }
-  
-    .line4 {
-      transition: $line-duration;
-    }
-  
-    &.active {
-      .line1,
-      .line4 {
-        animation: lineDisappear $line-duration;
-      }
-  
-      .line2 {
-        animation: lineRotate $line-duration;
-        transform: rotate(45deg);
-      }
-  
-      .line3 {
-        animation: lineRotate $line-duration;
-        transform: rotate(-45deg);
-      }
-    }
-  }
-  
+.hamburger.active .line2 {
+  rotate: 45deg;
+  opacity: 1;
+} 
+
+.hamburger.active .line3 {
+  rotate: -45deg;
+  opacity: 1;
+} 
+
+.hamburger.active .line4 {
+  opacity: 0;
+  transform: translateY(5px);
+} 
+
+.line1, .line2, .line3, .line4 {
+  opacity: unset;
+  transform: unset;
+  transition: all 400ms;
+  transform-origin: center;
+  stroke: white;
+  stroke-width: 2px;
+}
+
