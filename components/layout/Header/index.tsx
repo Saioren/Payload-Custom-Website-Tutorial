@@ -1,13 +1,15 @@
 import React from "react";
 import classes from "./index.module.scss";
 import Icon from "../../Graphics/Icon";
-import Link from "next/link";
+import NextLink from "next/link";
 import Hamburger from "./Hamburger";
 import { Modal, useModal } from "@faceless-ui/modal";
 import { useState } from "react";
 import GridContainer from "../GridContainer";
 import { Grid, Cell } from "@faceless-ui/css-grid";
 import { Props } from "./types";
+import { LargeBody } from "../../type/LargeBody";
+import CMSLink from "../../Link";
 
 const menuSlug = "menu";
 
@@ -27,9 +29,9 @@ export const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
 
   return (
     <header className={classes.header}>
-      <Link href="/" className={classes.logo}>
+      <NextLink href="/" className={classes.logo}>
         <Icon className={classes.icon} />
-      </Link>
+      </NextLink>
       <button
         onClick={handleToggle}
         type="button"
@@ -42,7 +44,20 @@ export const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
           <Grid>
             <Cell cols={8} htmlElement="nav">
               {megaMenu?.nav?.map(({ link }, i) => (
-                <h3 key={i}>{link.label}</h3>
+                <CMSLink {...link} key={i}>
+                  <h3 key={i} style={{ marginTop: i === 0 ? 0 : undefined }}>
+                    {link.label}
+                  </h3>
+                </CMSLink>
+              ))}
+            </Cell>
+            <Cell cols={3}>
+              {socialMedia?.links?.map(({ url, label }) => (
+                <LargeBody>
+                  <a href={url} className={classes.secondaryNavItem}>
+                    {label}
+                  </a>
+                </LargeBody>
               ))}
             </Cell>
           </Grid>
