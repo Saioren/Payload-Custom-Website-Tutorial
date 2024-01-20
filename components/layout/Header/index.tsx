@@ -35,17 +35,23 @@ export const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
       <button
         onClick={handleToggle}
         type="button"
-        className={classes.menuButton}
+        className={`${classes.menuButton} ${
+          isMenuActive ? classes.activeMenuButton : ""
+        }`}
       >
         <Hamburger active={isMenuActive} />
       </button>
-      <Modal slug="my-modal">
+      <Modal slug="my-modal" className={classes.menu}>
         <GridContainer>
           <Grid>
-            <Cell cols={8} htmlElement="nav">
+            <Cell cols={8} className={classes.primaryWrap} htmlElement="nav">
               {megaMenu?.nav?.map(({ link }, i) => (
                 <CMSLink {...link} key={i}>
-                  <h3 key={i} style={{ marginTop: i === 0 ? 0 : undefined }}>
+                  <h3
+                    className={classes.primaryNavItem}
+                    key={i}
+                    style={{ marginTop: i === 0 ? 0 : undefined }}
+                  >
                     {link.label}
                   </h3>
                 </CMSLink>

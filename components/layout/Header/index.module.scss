@@ -1,3 +1,5 @@
+@import '../../../css/queries.scss';
+
 .header {
     padding: 2rem;
     display: flex;
@@ -8,22 +10,27 @@
     left: 0;
     right: 0;
     pointer-events: none;
+    @include mid-break {
+        padding: 1.5rem;
+    }
 }
 
 .logo {
     background-color: red;
     padding: .75rem;
+    pointer-events: all;
 }
 
 .icon {
     width: 1.5rem;
     height: 1.5rem;
     display: block;
+    pointer-events: all;
 }
 
 .menuButton {
     pointer-events: all;
-    background-color: rgb(35, 35, 35);
+    background-color: rgb(31, 31, 31);
     transform: all 200ms linear;
     width: 3rem;
     height: 3rem;
@@ -32,11 +39,23 @@
     justify-content: center;
     border-radius: 100%;
     border: 0;
+    transition: border 0.3s ease;
     box-sizing: inset 2 2 2 solid black;
-    cursor: pointer;
+    cursor: pointer; 
+}
+
+.activeMenuButton {
+    border: 2px solid white;
+    background-color: rgb(20, 20, 20);
+}
+
+.primaryWrap a {
+    text-decoration: none;
+    color: antiquewhite;
 }
 
 .menu {
+    background-color: rgb(18, 18, 18);
     position: relative;
     border: 0;
     top: 0;
@@ -45,4 +64,68 @@
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    padding: 7rem 0 0;
+    @include mid-break {
+        overflow-y: auto;
+        padding: 7rem 1.5rem 0;
+    }
+}
+
+.navLinks {
+    @include mid-break {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 12rem;
+        pointer-events: none;
+        text-decoration: none;
+    }
+}
+.primaryNavItem {
+    color: antiquewhite;
+    text-decoration: none;
+    transition: all 300ms linear;
+}
+.primaryNavItem:hover {
+    color: #9ED1D8;
+}
+.secondaryNavItem {
+    color: white;
+    transition: all 300ms linear;
+    text-decoration: none;
+}
+.secondaryNavItem:hover {
+    color: #9ED1D8;
+}
+
+.ctaWrap {
+    position: fixed;
+    right: -5rem;
+    bottom: -8rem;
+    @include mid-break {
+        display: block;
+        right: -3rem;
+        bottom: -6rem;
+    };
+};
+.ctaWrap {
+    @include small-break{
+        right: -2rem;
+        bottom: -2rem;
+        margin-bottom: -3rem;
+    }
+}
+
+.ctaCSS {
+    width: 35rem;
+    height: 35rem;
+    @include large-break {
+        width: 30rem;
+        height: 30rem;
+    }
+}
+.ctaCSS {
+    @include mid-break {
+        width: 22rem;
+        height: 22rem;
+    }
 }

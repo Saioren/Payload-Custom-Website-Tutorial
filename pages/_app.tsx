@@ -4,6 +4,7 @@ import { GridProvider } from "@faceless-ui/css-grid";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import App from "next/app";
+import useStyles from "../css/app";
 import { Type } from "../collections/Page";
 import { Type as MegaMenuType } from "../globals/MegaMenu";
 import { Type as FooterType } from "../globals/Footer";
@@ -22,9 +23,9 @@ import classes from "../css/style.css";
 
 const MyApp = (appProps: AppProps): React.ReactElement => {
   const { Component, pageProps, megaMenu, footer, socialMedia } = appProps;
-
+  const jssClasses = useStyles();
   return (
-    <ModalProvider transTime={250} zIndex={20}>
+    <ModalProvider transTime={300} zIndex={20} classPrefix="payload">
       <GridProvider
         rowGap={{
           s: "2",
