@@ -10,6 +10,7 @@ import { Grid, Cell } from "@faceless-ui/css-grid";
 import { Props } from "./types";
 import { LargeBody } from "../../type/LargeBody";
 import CMSLink from "../../Link";
+import LetsTalk from "../../LetsTalk";
 
 const menuSlug = "menu";
 
@@ -68,6 +69,9 @@ export const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
             </Cell>
           </Grid>
         </GridContainer>
+        <div className={classes.ctaWrap}>
+          <LetsTalk className={classes.ctaCSS} />
+        </div>
       </Modal>
     </header>
   );

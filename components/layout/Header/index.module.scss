@@ -83,14 +83,14 @@
 .primaryNavItem {
     color: antiquewhite;
     text-decoration: none;
-    transition: all 300ms linear;
+    transition: color 300ms linear;
 }
 .primaryNavItem:hover {
     color: #9ED1D8;
 }
 .secondaryNavItem {
     color: white;
-    transition: all 300ms linear;
+    transition: color 300ms linear;
     text-decoration: none;
 }
 .secondaryNavItem:hover {
