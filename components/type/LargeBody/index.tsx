@@ -1,12 +1,18 @@
 import React from "react";
-import classes from "./index.module.scss";
+import useStyles from "./css";
 
 type Props = {
   className?: string;
 };
 
-export const LargeBody: React.FC<Props> = ({ children, className }) => {
+const LargeBody: React.FC<Props> = ({ children, className }) => {
+  const { largeBody } = useStyles();
+
   return (
-    <div className={[className].filter(Boolean).join(" ")}>{children}</div>
+    <div className={[largeBody, className].filter(Boolean).join(" ")}>
+      {children}
+    </div>
   );
 };
+
+export default LargeBody;

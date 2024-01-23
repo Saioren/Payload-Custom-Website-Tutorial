@@ -22,3 +22,5 @@ const Button: React.FC<Props> = ({ label, color = "antique", css }) => {
     ></button>
   );
 };
+
+export default Button;
