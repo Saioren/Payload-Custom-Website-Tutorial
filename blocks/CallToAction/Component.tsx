@@ -1,66 +1,41 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import Link from 'next/link';
-import { Type as Page } from '../../collections/Page';
-import RichText from '../../components/RichText';
-import classes from './index.module.css';
+import React from "react";
+import BackgroundColor from "../../components/layout/BackgroundColor";
+import GridContainer from "../../components/layout/GridContainer";
+import Gutter from "../../components/layout/Gutter";
+import RichText from "../../components/RichText";
+import Link from "../../components/Link";
+import Button from "../../components/Button";
+import { Type } from ".";
+import useStyles from "./css";
 
-export type Button = {
-  type: 'page'
-  label: string
-  page: Page
-} | {
-  type: 'custom'
-  label: string
-  url: string
-  newTab: boolean
-}
-
-export type Type = {
-  blockType: 'cta'
-  blockName?: string
-  content: unknown
-  buttons: Button[]
-}
-
-export const Component: React.FC<Type> = (props) => {
-  const { content, buttons } = props;
+const CallToAction: React.FC<Type> = ({
+  backgroundColor,
+  content,
+  actions,
+}) => {
+  const classes = useStyles();
 
   return (
-    <div className={classes.cta}>
-      <div className={classes.wrap}>
-        <RichText
-          content={content}
-          className={classes.content}
-        />
-        {buttons && (
-          <ul className={classes.buttons}>
-            {buttons.map((button, i) => (
-              <li key={i}>
-                {button.type === 'page' && (
-                  <Link
-                    href="[...slug]"
-                    as={`/${button.page.slug}`}
-                    className={classes.button}
-                  >
-                    {button.label}
-                  </Link>
-                )}
-                {button.type === 'custom' && (
-                  <a
-                    className={classes.button}
-                    href={button.url}
-                    target={button.newTab ? '_blank' : undefined}
-                    rel="noopener noreferrer"
-                  >
-                    {button.label}
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+    <div className={classes.callToAction}>
+      <Gutter className={classes.bgGutter} right>
+        <BackgroundColor color={backgroundColor} className={classes.bg} />
+      </Gutter>
+      <GridContainer className={classes.gridContainer}>
+        <BackgroundColor color={backgroundColor}>
+          <RichText content={content} />
+        </BackgroundColor>
+        <ul className={classes.actions}>
+          {actions?.map(({ link }, i) => (
+            <li key={i} className={classes.action}>
+              <Link {...link} className={classes.link}>
+                <Button color={backgroundColor} label={link.label} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </GridContainer>
     </div>
   );
 };
+
+export default CallToAction;

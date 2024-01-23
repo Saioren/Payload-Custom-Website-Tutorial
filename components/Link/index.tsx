@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Link from "next/link";
 import { Type as LinkType } from "../../Fields/link";
@@ -9,13 +10,14 @@ type Props = {
 const CMSLink: React.FC<Props> = ({ type, page, url, children, className }) => {
   const isRelativeURL = url?.indexOf("/") === 0;
 
-  if (type === "page" ? `/${[page?.slug]}` : url) {
+  if (type === "page" || isRelativeURL) {
     return (
       <Link href={type === "page" ? `/${page?.slug}` : url} scroll={false}>
-        {children}
+        <a className={className}>{children}</a>
       </Link>
     );
   }
+
   return (
     <a href={url} className={className}>
       {children}
