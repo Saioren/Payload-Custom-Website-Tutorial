@@ -15,7 +15,6 @@ import LetsTalk from "../../LetsTalk";
 const menuSlug = "menu";
 
 export const Header: React.FC<Props> = ({ megaMenu, socialMedia }) => {
-  console.log("megaMenu:", megaMenu);
   const [isMenuActive, setMenuActive] = useState(false);
   const { toggleModal } = useModal();
 
