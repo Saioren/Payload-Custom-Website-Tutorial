@@ -32,7 +32,7 @@ const Footer: React.FC<Props> = ({ footer, socialMedia }) => {
           {(Array.isArray(footer?.nav) && footer.nav.length) > 0 && (
             <Cell cols={6} colsM={8} htmlElement="ul" className={classes.nav}>
               {footer?.nav?.map(({ link }) => (
-                <li key={link.label}>
+                <li className={classes.link} key={link.label}>
                   <Link {...link} className={classes.link}>
                     {link.label}
                   </Link>

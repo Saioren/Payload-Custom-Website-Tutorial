@@ -1,0 +1,14 @@
+li {
+    color: none;
+    text-decoration: none;
+}
+
+.link {
+    color: antiquewhite;
+    text-decoration: 'none';
+}
+
+.link:hover {
+        transition: all 300ms linear;
+        color: #9ED1D8;
+}
